@@ -31,21 +31,22 @@ namespace WpfApp9
         private void listService_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selected_service = listService.SelectedItem as Service;
-            if (selected_service != null) 
+            if(selected_service != null)
             {
-                tbCost.Text = Convert.ToInt32(selected_service.Cost).ToString();
+                tbName.Text = selected_service.Title;
+                tbCost.Text = selected_service.Cost.ToString();
                 tbDescription.Text = selected_service.Description.ToString();
                 tbDiscount.Text = selected_service.Discount.ToString();
                 tbDuration.Text = selected_service.DurationInSeconds.ToString();
-                tbName.Text = selected_service.Title;
             }
             else
             {
-                tbDuration.Text = "";
-                tbDiscount.Text = "";
-                tbDescription.Text = "";
                 tbCost.Text = "";
+                tbDescription.Text = "";
+                tbDiscount.Text = "";
+                tbDuration.Text = "";
                 tbName.Text = "";
+                listService.SelectedIndex = -1;
             }
         }
 
